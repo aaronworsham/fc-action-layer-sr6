@@ -1,0 +1,16 @@
+{
+  "name": "fc-action-layer-sr6",
+  "version": "1.0.0",
+  "description": "Faithful Companion Action Layer for SR6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "rpg-dice-roller": ""
+  }
+}
