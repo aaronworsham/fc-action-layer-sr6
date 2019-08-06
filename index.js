@@ -2,8 +2,9 @@
 
 
 module.exports.roll = roll;
-var roller = require('rpg-dice-roller')
+const { DiceRoller } = require('rpg-dice-roller');
+const diceRoller = new DiceRoller();
 
 function roll(max){
-	return Math.floor(Math.random() * Math.floor(max));
+	return diceRoller.roll('1d6');
 }
