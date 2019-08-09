@@ -1,0 +1,1 @@
+This package is part of the Faithful Companions application stack.  It is open for the public to view
