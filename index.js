@@ -19,7 +19,7 @@ function rollForHits(options){
 	else{
 		diceRoll = diceRoller.roll(options.poolSize + 'd6');
 	}
-	diceRoll.currentRoll = diceRoll.rolls[diceRoll.length- 1]
+	diceRoll.currentRoll = diceRoll.rolls[diceRoll.rolls.length- 1]
 	diceRoll.hits = countHits(diceRoll, options);
 	return diceRoll
 }

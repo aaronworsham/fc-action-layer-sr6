@@ -20,6 +20,11 @@ describe('Pool of Dice', function() {
     	}
     	expect(diceRolled).to.be.above(0);
     })	
+     it('will have a current roll array', function(){
+        var options = {explode: false, threshold: 4, poolSize: 6}
+        var result = actionLayer.rollForHits(options);
+        expect(result.currentRoll).to.exist;
+     })
 	})
 	describe('Exploding Pool', function(){
     it('should roll an exploding pool of 6 dice', function() {
