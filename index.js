@@ -19,13 +19,14 @@ function rollForHits(options){
 	else{
 		diceRoll = diceRoller.roll(options.poolSize + 'd6');
 	}
+	diceRoll.currentRoll = diceRoll.rolls[diceRoll.length- 1]
 	diceRoll.hits = countHits(diceRoll, options);
 	return diceRoll
 }
 
 function countHits(diceRoll, options){
 	var hits = 0;
-	for (var i = diceRoll.rolls[0].length - 1; i >= 0; i--) {
+	for (var i = diceRoll.currentRoll.length - 1; i >= 0; i--) {
 		if (diceRoll.rolls[0][i] > options.threshold) {
 			hits++
 		}

@@ -1,7 +1,7 @@
 {
-  "name": "fc-action-layer-sr6",
-  "version": "1.0.0",
-  "description": "Faithful Companion Action Layer for SR6",
+  "name": "advcomp-action-sr",
+  "version": "1.0.1",
+  "description": "Adventure Companion Action Layer for SR",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
