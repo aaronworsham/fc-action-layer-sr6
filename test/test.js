@@ -44,23 +44,16 @@ describe('Pool of Dice', function() {
     })	
 	})
 	describe('Rerolling dice in Pool', function(){
-		it('will reroll one of the dice', function(){
+		it('will reroll all of the dice', function(){
   		var options = {explode: false, threshold: 4, poolSize: 6}
       var result = actionLayer.rollForHits(options);
-      var oldResult = result.rolls[0].slice(0)  //clone the value of the array
-      console.log(oldResult)
-			var newResult = actionLayer.reroll([0], result)		
-			console.log(newResult);
-			console.log(result);
-		});
-		it('will reroll three of the dice', function(){
-  		var options = {explode: false, threshold: 4, poolSize: 6}
-      var result = actionLayer.rollForHits(options);
-      var oldResult = result.rolls[0].slice(0)  //clone the value of the array
-      console.log(oldResult)
-			var newResult = actionLayer.reroll([0,2,4], result)		
-			console.log(newResult);
-			console.log(result);
+      console.log("Current Roll")
+      console.log(result.currentRoll)
+			var newResult = actionLayer.reroll([0,1,2,3,4,5], result, options)
+      console.log("New Current Roll")		
+			console.log(result.currentRoll);
+      expect(result.rolls[0]).to.not.equal(result.rolls[1])
+      expect(result.rolls[0]).to.not.equal(result.currentRoll)
 		})
 	})
 });
