@@ -1,7 +1,6 @@
 'use strict';
 
-module.exports.rollForHits = rollForHits;
-module.exports.reroll = reroll;
+
 const { DiceRoller } = require('rpg-dice-roller');
 const diceRoller = new DiceRoller();
 
@@ -40,34 +39,25 @@ function updateCurrentRoll(diceRoll){
 }
 
 function reroll(rerollArray, diceRoll, options){
-	console.log('Before rolling new Roll')
-	console.log(diceRoll.rolls)
 	var newRolls = diceRoller.roll(rerollArray.length + 'd6');
 	var newRollArray = diceRoll.rolls[diceRoll.rolls.length -1].slice(0)
 	var x = 0;
 	for (var i in rerollArray){
-		console.log("Updating " + newRollArray[rerollArray[i]] + " to " + newRolls.rolls[0][x])
 		newRollArray[rerollArray[i]] = newRolls.rolls[0][i]
 		x++;
 	}
-
-	console.log('Before adding new Roll')
-	console.log(diceRoll.rolls)
 	diceRoll.rolls.push(newRollArray)
-	console.log('After adding new Roll')
-	console.log(diceRoll.rolls)
-
-	console.log('Before updating Current')
-	console.log(diceRoll.currentRoll)
 	updateCurrentRoll(diceRoll)
-	console.log('After updating Current')
-	console.log(diceRoll.currentRoll)
-
-	console.log('Before updating Hits')
-	console.log(diceRoll.hits)
-	updateCountHits(diceRoll, options)
-	console.log(diceRoll.hits)
-	
+	updateCountHits(diceRoll, options)	
 
 	return diceRoll;
 }
+
+function rollInit(options){
+	var diceRoll = diceRoller.roll(options.poolSize + 'd6');
+	return diceRoll
+}
+
+module.exports.rollForHits = rollForHits;
+module.exports.reroll = reroll;
+module.exports.rollInit = rollInit;

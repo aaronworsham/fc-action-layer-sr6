@@ -1,6 +1,6 @@
 {
   "name": "advcomp-action-sr",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Adventure Companion Action Layer for SR",
   "main": "index.js",
   "scripts": {

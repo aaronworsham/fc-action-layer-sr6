@@ -47,15 +47,19 @@ describe('Pool of Dice', function() {
 		it('will reroll all of the dice', function(){
   		var options = {explode: false, threshold: 4, poolSize: 6}
       var result = actionLayer.rollForHits(options);
-      console.log("Current Roll")
-      console.log(result.currentRoll)
 			var newResult = actionLayer.reroll([0,1,2,3,4,5], result, options)
-      console.log("New Current Roll")		
-			console.log(result.currentRoll);
       expect(result.rolls[0]).to.not.equal(result.rolls[1])
       expect(result.rolls[0]).to.not.equal(result.currentRoll)
 		})
 	})
+  describe('Roll init for actor', function(){
+    it('will roll 3 dice and sum them up', function(){
+      var options = {poolSize: 6, mode: 'sum'}
+      var result = actionLayer.rollInit(options)
+      expect(result.total).to.be.above(3)
+
+    })
+  })
 });
 
 
